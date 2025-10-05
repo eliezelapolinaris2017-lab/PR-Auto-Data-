@@ -1,0 +1,28 @@
+:root{
+  --bg:#0e1117; --card:#111827; --ink:#e5e7eb; --muted:#9aa4b2;
+  --pri:#ef4444; --pri2:#ffffff; --btn:#1f2937; --outline:#293042;
+  --radius:14px; --gap:14px; --shadow:0 10px 24px rgba(0,0,0,.35);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink)}
+.top{position:sticky;top:0;z-index:10;background:#0d1320;border-bottom:1px solid var(--outline);padding:10px 12px;display:flex;align-items:center;gap:10px}
+.brand{font-weight:800} .tag{font-size:12px;border:1px solid var(--outline);padding:2px 8px;border-radius:999px;color:var(--muted)}
+.nav{margin-left:auto;display:flex;gap:8px}
+.nav button{background:var(--btn);color:var(--ink);border:1px solid var(--outline);border-radius:10px;padding:8px 12px;cursor:pointer}
+.nav button.active{outline:2px solid var(--pri)}
+.container{max-width:980px;margin:18px auto;padding:0 12px}
+.card{background:linear-gradient(180deg,#111827 0%, #0e1626 100%);border:1px solid var(--outline);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin-bottom:16px}
+.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+label{display:flex;flex-direction:column;color:var(--muted);font-size:13px}
+select,input,textarea{background:#0f1628;color:var(--ink);border:1px solid var(--outline);border-radius:10px;padding:10px;outline:none}
+.primary{background:linear-gradient(180deg,var(--pri2),#ddd);color:#111;border:0;border-radius:10px;padding:10px 12px;cursor:pointer;font-weight:700}
+.ghost{background:transparent;color:var(--ink);border:1px solid var(--outline);border-radius:10px;padding:9px 12px;cursor:pointer}
+.pill{border:1px solid var(--outline);padding:8px 12px;border-radius:10px;color:var(--muted);background:#0e1526;margin-bottom:10px}
+.tabs{display:flex;gap:6px;margin:6px 0 12px}
+.tabs button{background:#111a2c;border:1px solid var(--outline);color:var(--ink);padding:6px 10px;border-radius:10px;cursor:pointer}
+.tabs button.active{outline:2px solid var(--pri)}
+.note{color:var(--muted);font-size:12px}
+.foot{opacity:.7;text-align:center;padding:24px 0;border-top:1px solid var(--outline)}
