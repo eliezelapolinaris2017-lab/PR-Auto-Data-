@@ -1,3 +1,6 @@
+// ======== Utilidades ========
+function deepClone(obj){ return JSON.parse(JSON.stringify(obj)); } // compatible con Safari/iOS
+
 // ======== Datos base (seed) ========
 const DEFAULT_DB = {
 vehicles: [
@@ -11,10 +14,9 @@ steps:["Eleva el vehículo de forma segura","Drena el aceite","Cambia el filtro"
 specs: {"Aceite motor":"0W-20, 4.2 L","Torque tapón cárter":"27 N·m","Bujías":"Iridio 0.7-0.8 mm"} },
 {vid:"2016-Toyota-Corolla", section:"Procedimientos", title:"Cambio de bujías",
 steps:["Desconecta bobinas","Retira bujías con dado de 14 mm","Instala a 18 N·m (aprox.)","Conecta bobinas y prueba"],
-images:[/* ejemplo: {name:'foto1', data:'data:image/png;base64,...'} */]},
+images:[]},
 ],
 diagrams:[
-// Ejemplo SVG (placeholder con licencia propia)
 {vid:"2016-Toyota-Corolla", title:"Esquema básico batería/alternador (placeholder)",
 type:"svg",
 data:`<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'>
@@ -39,16 +41,22 @@ dtc: [
 };
 const DB_KEY = "autotech.db.pro";
 
+// ======== Helpers de almacenamiento (con fallback) ========
 function getDB(){
 const raw = localStorage.getItem(DB_KEY);
-if(!raw){ localStorage.setItem(DB_KEY, JSON.stringify(DEFAULT_DB)); return structuredClone(DEFAULT_DB); }
-try{ return JSON.parse(raw); }catch(e){ return structuredClone(DEFAULT_DB); }
+if(!raw){ localStorage.setItem(DB_KEY, JSON.stringify(DEFAULT_DB)); return deepClone(DEFAULT_DB); }
+try{ return JSON.parse(raw); }catch(e){ return deepClone(DEFAULT_DB); }
 }
 function setDB(db){ localStorage.setItem(DB_KEY, JSON.stringify(db)); }
 
-// ======== SPA ========
+// ======== DOM ready (evita correr antes de que exista el HTML) ========
+document.addEventListener('DOMContentLoaded', () => {
+
+// Utilidad corta
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
+
+// ======== SPA ========
 const PAGES = ["finder","results","viewer","admin","help"];
 function go(p){
 $$('.nav button').forEach(b=> b.classList.toggle('active', b.dataset.page===p));
@@ -56,12 +64,13 @@ PAGES.forEach(id => $("#page-"+id).classList.toggle('hidden', id!==p));
 }
 $("#year").textContent = new Date().getFullYear();
 
-// ======== Finder ========
+// ======== Estado ========
 let DB = getDB();
 let currentVID = null;
 let currentTab = "Mantenimiento";
 let currentViewItem = null; // topic o diagrama
 
+// ======== Finder ========
 function unique(arr){ return [...new Set(arr)]; }
 function fillFinder(){
 const years = unique(DB.vehicles.map(v=>v.year)).sort((a,b)=>b-a);
@@ -96,12 +105,15 @@ renderResults();
 };
 
 // ======== Results / Tabs ========
-document.querySelector(".tabs").addEventListener('click', e=>{
+const tabsEl = document.querySelector(".tabs");
+if (tabsEl) {
+tabsEl.addEventListener('click', e=>{
 if(e.target.tagName!=='BUTTON') return;
 $$(".tabs button").forEach(b=>b.classList.toggle('active', b===e.target));
 currentTab = e.target.dataset.tab;
 renderResults();
 });
+}
 
 function renderResults(){
 const area = $("#resultList");
@@ -156,7 +168,7 @@ openTopic(currentViewItem);
 });
 }
 
-// ======== Viewer para topics ========
+// ======== Viewer: topics ========
 function openTopic(item){
 $("#viewTitle").textContent = item.title || item.section;
 const body = $("#viewBody"); body.innerHTML = "";
@@ -196,7 +208,7 @@ const inner = document.createElement('div'); inner.className='viewerCanvas';
 inner.style.transform = 'translate(0px,0px) scale(1)';
 
 if(dg.type==='svg' || (dg.type==='auto' && dg.data.trim().startsWith('<svg'))){
-inner.innerHTML = dg.data; // SVG inline (texto)
+inner.innerHTML = dg.data; // SVG inline
 } else {
 const img = document.createElement('img'); img.className='viewerImg'; img.src = dg.data; // PNG/JPG dataURL
 inner.appendChild(img);
@@ -271,7 +283,6 @@ DB.topics.push(entry);
 setDB(DB); alert("Contenido añadido a "+vid);
 };
 
-// Subida de diagramas
 async function fileToDataURL(file){
 const array = await file.arrayBuffer();
 let mime = file.type || 'application/octet-stream';
@@ -294,14 +305,16 @@ else type='jpg';
 }
 DB.diagrams = DB.diagrams || [];
 DB.diagrams.push({vid,title,type,data: (type==='svg' ? atob(dataUrl.split(',',2)[1]) : dataUrl)});
-// Nota: SVG se guarda como texto plano (no dataURL) para ligereza/edición
 setDB(DB);
 alert("Diagrama añadido.");
 };
 
 // ======== Nav ========
-document.querySelector('.nav').addEventListener('click', e=>{
+const navEl = document.querySelector('.nav');
+if (navEl) {
+navEl.addEventListener('click', e=>{
 if(e.target.tagName!=='BUTTON') return;
 go(e.target.dataset.page);
 });
-
+}
+});
