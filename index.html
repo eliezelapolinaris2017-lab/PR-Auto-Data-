@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AutoTech Library — MVP</title>
+<meta name="theme-color" content="#0e1117">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <strong>AutoTech Library</strong> <span class="tag">MVP</span>
+  </div>
+  <nav class="nav">
+    <button data-page="finder" class="active">Buscar</button>
+    <button data-page="results">Resultados</button>
+    <button data-page="viewer">Ficha</button>
+    <button data-page="admin">Admin</button>
+    <button data-page="help">Ayuda</button>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Finder -->
+  <section id="page-finder" class="card">
+    <h2>FIND YOUR VEHICLE</h2>
+    <div class="grid">
+      <label>Año
+        <select id="selYear"><option value="">Selecciona</option></select>
+      </label>
+      <label>Marca
+        <select id="selMake"><option value="">Selecciona</option></select>
+      </label>
+      <label>Modelo
+        <select id="selModel"><option value="">Selecciona</option></select>
+      </label>
+    </div>
+    <div class="row">
+      <button id="btnReset" class="ghost">Reset</button>
+      <button id="btnSelect" class="primary">Seleccionar</button>
+    </div>
+    <p class="note">Este repositorio contiene contenido original del autor. No incluye material de sitios de terceros.</p>
+  </section>
+
+  <!-- Results -->
+  <section id="page-results" class="card hidden">
+    <h2>Resultados</h2>
+    <div id="vehicleInfo" class="pill"></div>
+    <div class="tabs">
+      <button data-tab="Mantenimiento" class="active">Mantenimiento</button>
+      <button data-tab="Especificaciones">Especificaciones</button>
+      <button data-tab="Procedimientos">Procedimientos</button>
+      <button data-tab="DTC">DTC</button>
+    </div>
+    <div id="resultList"></div>
+  </section>
+
+  <!-- Viewer -->
+  <section id="page-viewer" class="card hidden">
+    <h2 id="viewTitle">Ficha</h2>
+    <div id="viewBody"></div>
+    <div class="row">
+      <button id="btnBack" class="ghost">Volver a resultados</button>
+      <button id="btnPDF" class="primary">Exportar PDF</button>
+    </div>
+  </section>
+
+  <!-- Admin -->
+  <section id="page-admin" class="card hidden">
+    <h2>Admin (Local)</h2>
+    <p>Carga/guarda tu base de datos en <code>LocalStorage</code>. Solo tú la ves en este dispositivo.</p>
+    <div class="grid">
+      <label>Importar JSON
+        <input type="file" id="fileJson" accept="application/json">
+      </label>
+      <label>Descargar copia
+        <button id="btnExport" class="ghost">Exportar JSON</button>
+      </label>
+    </div>
+    <h3>Agregar vehículo</h3>
+    <div class="grid">
+      <input id="vYear" placeholder="Año (ej. 2016)">
+      <input id="vMake" placeholder="Marca (ej. Toyota)">
+      <input id="vModel" placeholder="Modelo (ej. Corolla)">
+      <input id="vEngine" placeholder="Motor (ej. 1.8L 2ZR-FE)">
+    </div>
+    <button id="btnAddVeh" class="primary">Añadir vehículo</button>
+
+    <h3 style="margin-top:18px">Agregar contenido</h3>
+    <div class="grid">
+      <input id="cVID" placeholder="VID (ej. 2016-Toyota-Corolla)">
+      <input id="cSection" placeholder="Sección (Mantenimiento/Especificaciones/Procedimientos/DTC)">
+      <input id="cTitle" placeholder="Título (si aplica)">
+    </div>
+    <textarea id="cPayload" rows="6" placeholder='JSON del contenido (ej. {"steps":["...","..."]} o {"specs":{"Par de apriete":"27 N·m"}})'></textarea>
+    <button id="btnAddContent" class="primary">Añadir contenido</button>
+  </section>
+
+  <!-- Help -->
+  <section id="page-help" class="card hidden">
+    <h2>Ayuda</h2>
+    <ul>
+      <li>Este MVP es 100% estático y almacena tus datos en LocalStorage.</li>
+      <li>Puedes importar un archivo <code>.json</code> con tu base y actualizarla cuando quieras.</li>
+      <li>El contenido debe ser **original** o con licencia abierta.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">© <span id="year"></span> AutoTech Library — Contenido propio.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
