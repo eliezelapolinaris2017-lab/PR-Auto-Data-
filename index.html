@@ -3,109 +3,131 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AutoTech Library — MVP</title>
+<title>AutoTech Library — PRO (Diagramas & Procedimientos)</title>
 <meta name="theme-color" content="#0e1117">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header class="top">
-  <div class="brand">
-    <strong>AutoTech Library</strong> <span class="tag">MVP</span>
-  </div>
-  <nav class="nav">
-    <button data-page="finder" class="active">Buscar</button>
-    <button data-page="results">Resultados</button>
-    <button data-page="viewer">Ficha</button>
-    <button data-page="admin">Admin</button>
-    <button data-page="help">Ayuda</button>
-  </nav>
+<div class="brand">
+<strong>AutoTech Library</strong> <span class="tag">PRO</span>
+</div>
+<nav class="nav">
+<button data-page="finder" class="active">Buscar</button>
+<button data-page="results">Resultados</button>
+<button data-page="viewer">Ficha</button>
+<button data-page="admin">Admin</button>
+<button data-page="help">Ayuda</button>
+</nav>
 </header>
 
 <main class="container">
-  <!-- Finder -->
-  <section id="page-finder" class="card">
-    <h2>FIND YOUR VEHICLE</h2>
-    <div class="grid">
-      <label>Año
-        <select id="selYear"><option value="">Selecciona</option></select>
-      </label>
-      <label>Marca
-        <select id="selMake"><option value="">Selecciona</option></select>
-      </label>
-      <label>Modelo
-        <select id="selModel"><option value="">Selecciona</option></select>
-      </label>
-    </div>
-    <div class="row">
-      <button id="btnReset" class="ghost">Reset</button>
-      <button id="btnSelect" class="primary">Seleccionar</button>
-    </div>
-    <p class="note">Este repositorio contiene contenido original del autor. No incluye material de sitios de terceros.</p>
-  </section>
+<!-- Finder -->
+<section id="page-finder" class="card">
+<h2>FIND YOUR VEHICLE</h2>
+<div class="grid">
+<label>Año
+<select id="selYear"><option value="">Selecciona</option></select>
+</label>
+<label>Marca
+<select id="selMake"><option value="">Selecciona</option></select>
+</label>
+<label>Modelo
+<select id="selModel"><option value="">Selecciona</option></select>
+</label>
+</div>
+<div class="row">
+<button id="btnReset" class="ghost">Reset</button>
+<button id="btnSelect" class="primary">Seleccionar</button>
+</div>
+<p class="note">Este proyecto solo acepta contenido original o con licencia abierta. No subas material protegido de terceros.</p>
+</section>
 
-  <!-- Results -->
-  <section id="page-results" class="card hidden">
-    <h2>Resultados</h2>
-    <div id="vehicleInfo" class="pill"></div>
-    <div class="tabs">
-      <button data-tab="Mantenimiento" class="active">Mantenimiento</button>
-      <button data-tab="Especificaciones">Especificaciones</button>
-      <button data-tab="Procedimientos">Procedimientos</button>
-      <button data-tab="DTC">DTC</button>
-    </div>
-    <div id="resultList"></div>
-  </section>
+<!-- Results -->
+<section id="page-results" class="card hidden">
+<h2>Resultados</h2>
+<div id="vehicleInfo" class="pill"></div>
+<div class="tabs">
+<button data-tab="Mantenimiento" class="active">Mantenimiento</button>
+<button data-tab="Especificaciones">Especificaciones</button>
+<button data-tab="Procedimientos">Procedimientos</button>
+<button data-tab="Diagramas">Diagramas</button>
+<button data-tab="DTC">DTC</button>
+</div>
+<div id="resultList"></div>
+</section>
 
-  <!-- Viewer -->
-  <section id="page-viewer" class="card hidden">
-    <h2 id="viewTitle">Ficha</h2>
-    <div id="viewBody"></div>
-    <div class="row">
-      <button id="btnBack" class="ghost">Volver a resultados</button>
-      <button id="btnPDF" class="primary">Exportar PDF</button>
-    </div>
-  </section>
+<!-- Viewer -->
+<section id="page-viewer" class="card hidden">
+<h2 id="viewTitle">Ficha</h2>
+<div id="viewBody"></div>
+<div id="diagramToolbar" class="row hidden">
+<button id="zIn" class="ghost">Zoom +</button>
+<button id="zOut" class="ghost">Zoom −</button>
+<button id="zFit" class="ghost">Ajustar</button>
+<span class="note">Arrastra para desplazar</span>
+</div>
+<div class="row">
+<button id="btnBack" class="ghost">Volver a resultados</button>
+<button id="btnExport" class="primary">Exportar TXT/PDF (pronto)</button>
+</div>
+</section>
 
-  <!-- Admin -->
-  <section id="page-admin" class="card hidden">
-    <h2>Admin (Local)</h2>
-    <p>Carga/guarda tu base de datos en <code>LocalStorage</code>. Solo tú la ves en este dispositivo.</p>
-    <div class="grid">
-      <label>Importar JSON
-        <input type="file" id="fileJson" accept="application/json">
-      </label>
-      <label>Descargar copia
-        <button id="btnExport" class="ghost">Exportar JSON</button>
-      </label>
-    </div>
-    <h3>Agregar vehículo</h3>
-    <div class="grid">
-      <input id="vYear" placeholder="Año (ej. 2016)">
-      <input id="vMake" placeholder="Marca (ej. Toyota)">
-      <input id="vModel" placeholder="Modelo (ej. Corolla)">
-      <input id="vEngine" placeholder="Motor (ej. 1.8L 2ZR-FE)">
-    </div>
-    <button id="btnAddVeh" class="primary">Añadir vehículo</button>
+<!-- Admin -->
+<section id="page-admin" class="card hidden">
+<h2>Admin (Local)</h2>
+<p>Gestiona tu base de datos en <code>LocalStorage</code>. Importa/Exporta JSON.</p>
+<div class="grid">
+<label>Importar JSON
+<input type="file" id="fileJson" accept="application/json">
+</label>
+<label>Descargar copia
+<button id="btnExport" class="ghost">Exportar JSON</button>
+</label>
+</div>
+<hr>
+<h3>Agregar vehículo</h3>
+<div class="grid">
+<input id="vYear" placeholder="Año (ej. 2016)">
+<input id="vMake" placeholder="Marca (ej. Toyota)">
+<input id="vModel" placeholder="Modelo (ej. Corolla)">
+<input id="vEngine" placeholder="Motor (ej. 1.8L 2ZR-FE)">
+</div>
+<button id="btnAddVeh" class="primary">Añadir vehículo</button>
 
-    <h3 style="margin-top:18px">Agregar contenido</h3>
-    <div class="grid">
-      <input id="cVID" placeholder="VID (ej. 2016-Toyota-Corolla)">
-      <input id="cSection" placeholder="Sección (Mantenimiento/Especificaciones/Procedimientos/DTC)">
-      <input id="cTitle" placeholder="Título (si aplica)">
-    </div>
-    <textarea id="cPayload" rows="6" placeholder='JSON del contenido (ej. {"steps":["...","..."]} o {"specs":{"Par de apriete":"27 N·m"}})'></textarea>
-    <button id="btnAddContent" class="primary">Añadir contenido</button>
-  </section>
+<h3 style="margin-top:18px">Agregar contenido (procedimientos / especificaciones / mantenimiento)</h3>
+<div class="grid">
+<input id="cVID" placeholder="VID (ej. 2016-Toyota-Corolla)">
+<input id="cSection" placeholder="Sección (Mantenimiento/Especificaciones/Procedimientos)">
+<input id="cTitle" placeholder="Título (si aplica)">
+</div>
+<textarea id="cPayload" rows="6" placeholder='JSON del contenido (ej. {"steps":["...","..."]} o {"specs":{"Par":"27 N·m"}}). Para pasos con imagen: {"steps":["..."],"images":[{"name":"foto1","data":"data:image/png;base64,..."}]}'></textarea>
+<button id="btnAddContent" class="primary">Añadir contenido</button>
 
-  <!-- Help -->
-  <section id="page-help" class="card hidden">
-    <h2>Ayuda</h2>
-    <ul>
-      <li>Este MVP es 100% estático y almacena tus datos en LocalStorage.</li>
-      <li>Puedes importar un archivo <code>.json</code> con tu base y actualizarla cuando quieras.</li>
-      <li>El contenido debe ser **original** o con licencia abierta.</li>
-    </ul>
-  </section>
+<h3 style="margin-top:18px">Agregar diagrama</h3>
+<div class="grid">
+<input id="dVID" placeholder="VID (ej. 2016-Toyota-Corolla)">
+<input id="dTitle" placeholder="Título (ej. Diagrama eléctrico ECM)">
+<select id="dType">
+<option value="auto">Auto (detecta SVG/PNG)</option>
+<option value="svg">SVG</option>
+<option value="png">PNG</option>
+<option value="jpg">JPG</option>
+</select>
+</div>
+<input type="file" id="dFile" accept=".svg,.png,.jpg,.jpeg">
+<button id="btnAddDiagram" class="primary">Añadir diagrama</button>
+</section>
+
+<!-- Help -->
+<section id="page-help" class="card hidden">
+<h2>Ayuda</h2>
+<ul>
+<li>Sube <b>diagramas propios</b> en SVG/PNG/JPG. SVG permite zoom nítido y capas.</li>
+<li>Para capas en SVG, usa grupos con <code>data-layer="..."</code> y la app mostrará interruptores (v1.1).</li>
+<li>Evita material con copyright de terceros.</li>
+</ul>
+</section>
 </main>
 
 <footer class="foot">© <span id="year"></span> AutoTech Library — Contenido propio.</footer>
