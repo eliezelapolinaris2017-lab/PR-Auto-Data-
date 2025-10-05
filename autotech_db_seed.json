@@ -1,332 +1,52 @@
 {
-  "vehicles": [
-    {
-      "year": 2010,
-      "make": "Toyota",
-      "model": "Corolla",
-      "engine": "1.8L 2ZR-FE",
-      "id": "2010-Toyota-Corolla"
-    },
-    {
-      "year": 2015,
-      "make": "Toyota",
-      "model": "Camry",
-      "engine": "2.5L 2AR-FE",
-      "id": "2015-Toyota-Camry"
-    },
-    {
-      "year": 2016,
-      "make": "Toyota",
-      "model": "Corolla",
-      "engine": "1.8L 2ZR-FE",
-      "id": "2016-Toyota-Corolla"
-    },
-    {
-      "year": 2012,
-      "make": "Honda",
-      "model": "Civic",
-      "engine": "1.8L R18Z1",
-      "id": "2012-Honda-Civic"
-    },
-    {
-      "year": 2015,
-      "make": "Honda",
-      "model": "Accord",
-      "engine": "2.4L K24W",
-      "id": "2015-Honda-Accord"
-    },
-    {
-      "year": 2014,
-      "make": "Nissan",
-      "model": "Sentra",
-      "engine": "1.8L MRA8DE",
-      "id": "2014-Nissan-Sentra"
-    },
-    {
-      "year": 2013,
-      "make": "Hyundai",
-      "model": "Elantra",
-      "engine": "1.8L Nu",
-      "id": "2013-Hyundai-Elantra"
-    },
-    {
-      "year": 2013,
-      "make": "Kia",
-      "model": "Optima",
-      "engine": "2.4L GDI",
-      "id": "2013-Kia-Optima"
-    },
-    {
-      "year": 2011,
-      "make": "Ford",
-      "model": "Focus",
-      "engine": "2.0L Duratec",
-      "id": "2011-Ford-Focus"
-    },
-    {
-      "year": 2012,
-      "make": "Ford",
-      "model": "Fusion",
-      "engine": "2.5L Duratec",
-      "id": "2012-Ford-Fusion"
-    },
-    {
-      "year": 2014,
-      "make": "Chevrolet",
-      "model": "Cruze",
-      "engine": "1.8L/1.4T",
-      "id": "2014-Chevrolet-Cruze"
-    },
-    {
-      "year": 2015,
-      "make": "Mazda",
-      "model": "3",
-      "engine": "2.0L Skyactiv",
-      "id": "2015-Mazda-3"
-    },
-    {
-      "year": 2015,
-      "make": "Subaru",
-      "model": "Impreza",
-      "engine": "2.0L FB20",
-      "id": "2015-Subaru-Impreza"
-    },
-    {
-      "year": 2016,
-      "make": "Volkswagen",
-      "model": "Jetta",
-      "engine": "1.4T",
-      "id": "2016-Volkswagen-Jetta"
-    },
-    {
-      "year": 2010,
-      "make": "BMW",
-      "model": "328i",
-      "engine": "3.0L N52",
-      "id": "2010-BMW-328i"
-    },
-    {
-      "year": 2014,
-      "make": "Mercedes-Benz",
-      "model": "C250",
-      "engine": "1.8L M271",
-      "id": "2014-Mercedes-Benz-C250"
-    },
-    {
-      "year": 2012,
-      "make": "Audi",
-      "model": "A4",
-      "engine": "2.0T EA888",
-      "id": "2012-Audi-A4"
-    },
-    {
-      "year": 2011,
-      "make": "Volkswagen",
-      "model": "Golf",
-      "engine": "2.5L/2.0T",
-      "id": "2011-Volkswagen-Golf"
-    },
-    {
-      "year": 2015,
-      "make": "Jeep",
-      "model": "Wrangler",
-      "engine": "3.6L Pentastar",
-      "id": "2015-Jeep-Wrangler"
-    },
-    {
-      "year": 2013,
-      "make": "Chevrolet",
-      "model": "Malibu",
-      "engine": "2.5L",
-      "id": "2013-Chevrolet-Malibu"
-    }
-  ],
-  "topics": [
-    {
-      "vid": "2010-Toyota-Corolla",
-      "section": "Mantenimiento",
-      "title": "Intervalos básicos",
-      "steps": [
-        "Aceite y filtro: 5k-8k km",
-        "Filtro aire: inspección cada servicio",
-        "Bujías Iridio: 96k-160k km"
-      ]
-    },
-    {
-      "vid": "2010-Toyota-Corolla",
-      "section": "Especificaciones",
-      "specs": {
-        "Aceite": "0W-20 4.2 L",
-        "Par tapón cárter": "27 N·m"
-      }
-    },
-    {
-      "vid": "2015-Honda-Accord",
-      "section": "Procedimientos",
-      "title": "Cambio pastillas delanteras",
-      "steps": [
-        "Aflojar tuercas rueda",
-        "Elevar y retirar rueda",
-        "Comprimir pistón",
-        "Instalar pastillas nuevas",
-        "Torque tornillos guía ~35 N·m"
-      ]
-    },
-    {
-      "vid": "2015-Honda-Accord",
-      "section": "Especificaciones",
-      "specs": {
-        "Par bujías": "18 N·m",
-        "Aceite": "0W-20 4.4 L"
-      }
-    },
-    {
-      "vid": "2014-Nissan-Sentra",
-      "section": "Mantenimiento",
-      "title": "Correa auxiliar",
-      "steps": [
-        "Inspección cada 20k km",
-        "Reemplazo si hay grietas o ruidos",
-        "Tensión según especificación"
-      ]
-    },
-    {
-      "vid": "2013-Hyundai-Elantra",
-      "section": "Procedimientos",
-      "title": "Filtro de cabina",
-      "steps": [
-        "Abrir guantera y liberar topes",
-        "Retirar tapa filtro",
-        "Sustituir por filtro nuevo",
-        "Cerrar y probar flujo"
-      ]
-    },
-    {
-      "vid": "2011-Ford-Focus",
-      "section": "Especificaciones",
-      "specs": {
-        "Aceite": "5W-20 4.3 L",
-        "Torque bujías": "25 N·m"
-      }
-    },
-    {
-      "vid": "2014-Chevrolet-Cruze",
-      "section": "Mantenimiento",
-      "title": "Refrigerante",
-      "steps": [
-        "Usar Dex-Cool",
-        "Cambio cada 5 años o 240k km"
-      ]
-    },
-    {
-      "vid": "2015-Mazda-3",
-      "section": "Procedimientos",
-      "title": "Cambio de bujías",
-      "steps": [
-        "Retirar tapa",
-        "Desconectar bobinas",
-        "Par bujías 18-22 N·m"
-      ]
-    },
-    {
-      "vid": "2015-Subaru-Impreza",
-      "section": "Especificaciones",
-      "specs": {
-        "Aceite": "0W-20 5.1 L",
-        "Par bujías": "25 N·m"
-      }
-    },
-    {
-      "vid": "2016-Volkswagen-Jetta",
-      "section": "Mantenimiento",
-      "title": "Servicio DSG (si equipa)",
-      "steps": [
-        "Revisar especificación aceite DSG",
-        "Cambio a 60k km"
-      ]
-    },
-    {
-      "vid": "2010-BMW-328i",
-      "section": "Especificaciones",
-      "specs": {
-        "Aceite": "5W-30 LL-01 6.5 L",
-        "Par bujías": "23 N·m"
-      }
-    },
-    {
-      "vid": "2014-Mercedes-Benz-C250",
-      "section": "Mantenimiento",
-      "title": "Aceite M271",
-      "steps": [
-        "Usar 229.5/229.51",
-        "Intervalo flexible por ASSYST+"
-      ]
-    },
-    {
-      "vid": "2012-Audi-A4",
-      "section": "Procedimientos",
-      "title": "Bobinas 2.0T",
-      "steps": [
-        "Desconectar conectores",
-        "Extraer bobinas con extractor",
-        "Reinstalar",
-        "Verificar misfire"
-      ]
-    },
-    {
-      "vid": "2011-Volkswagen-Golf",
-      "section": "Especificaciones",
-      "specs": {
-        "Aceite": "5W-40 4.6 L",
-        "Par bujías": "25 N·m"
-      }
-    },
-    {
-      "vid": "2015-Jeep-Wrangler",
-      "section": "Mantenimiento",
-      "title": "4x4 chequeo básico",
-      "steps": [
-        "Revisar crucetas y ejes",
-        "Nivel de diferenciales",
-        "Presión neumáticos off-road"
-      ]
-    },
-    {
-      "vid": "2013-Chevrolet-Malibu",
-      "section": "Procedimientos",
-      "title": "Filtro de aire",
-      "steps": [
-        "Retirar caja superior",
-        "Sustituir filtro",
-        "Asegurar clips"
-      ]
-    }
-  ],
-  "dtc": [
-    {
-      "code": "P0300",
-      "title": "Fallo de encendido aleatorio",
-      "notes": "Bujías, bobinas, inyectores, fugas de vacío, baja compresión."
-    },
-    {
-      "code": "P0171",
-      "title": "Mezcla pobre (B1)",
-      "notes": "MAF sucio, fugas en admisión, combustible bajo, O2 pre-cat."
-    },
-    {
-      "code": "P0420",
-      "title": "Eficiencia catalizador baja (B1)",
-      "notes": "Catalizador degradado, sensores O2, fugas escape."
-    },
-    {
-      "code": "P0118",
-      "title": "ECT circuito alto",
-      "notes": "Sensor, conector, cableado, nivel refrigerante."
-    },
-    {
-      "code": "P0442",
-      "title": "Fuga pequeña EVAP",
-      "notes": "Tapón de combustible, líneas EVAP, solenoide purga."
-    }
-  ]
+"vehicles": [
+{ "year": 2016, "make": "Toyota", "model": "Corolla", "engine": "1.8L 2ZR-FE", "id": "2016-Toyota-Corolla" },
+{ "year": 2012, "make": "Honda", "model": "Civic", "engine": "1.8L R18Z1", "id": "2012-Honda-Civic" }
+],
+"topics": [
+{
+"vid": "2016-Toyota-Corolla",
+"section": "Mantenimiento",
+"title": "Intervalos básicos",
+"steps": [
+"Aceite y filtro: 5k-8k km",
+"Filtro aire: inspección cada servicio",
+"Bujías Iridio: 96k-160k km"
+]
+},
+{
+"vid": "2016-Toyota-Corolla",
+"section": "Especificaciones",
+"specs": {
+"Aceite": "0W-20 4.2 L",
+"Par tapón cárter": "27 N·m"
 }
+},
+{
+"vid": "2016-Toyota-Corolla",
+"section": "Procedimientos",
+"title": "Cambio de bujías",
+"steps": [
+"Retirar tapa superior",
+"Desconectar bobinas y tornillos guía",
+"Extraer bujías",
+"Instalar nuevas a 18 N·m",
+"Probar encendido"
+],
+"images": []
+}
+],
+"diagrams": [
+{
+"vid": "2016-Toyota-Corolla",
+"title": "Esquema básico batería/alternador (placeholder)",
+"type": "svg",
+"data": "<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'><rect width='1200' height='800' fill='#0b1020'/><g stroke='#ef4444' stroke-width='4' fill='none'><rect x='80' y='320' width='160' height='120' rx='12' stroke='#fff'/><text x='160' y='385' fill='#fff' text-anchor='middle' font-family='Arial' font-size='18'>Batería</text><line x1='240' y1='380' x2='520' y2='380'/><circle cx='520' cy='380' r='10' fill='#ef4444'/><rect x='540' y='320' width='200' height='120' rx='12' stroke='#fff'/><text x='640' y='385' fill='#fff' text-anchor='middle' font-family='Arial' font-size='18'>Alternador</text><line x1='740' y1='380' x2='1040' y2='380'/><rect x='1040' y='340' width='100' height='80' rx='8' stroke='#fff'/><text x='1090' y='385' fill='#fff' text-anchor='middle' font-family='Arial' font-size='16'>ECM</text></g></svg>"
+}
+],
+"dtc": [
+{ "code": "P0300", "title": "Fallo de encendido aleatorio", "notes": "Bujías, bobinas, inyectores, fugas de vacío, baja compresión." },
+{ "code": "P0171", "title": "Mezcla pobre (B1)", "notes": "MAF sucio, fugas en admisión, combustible bajo, O2 pre-cat." }
+]
+}
+Mostrando
